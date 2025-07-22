@@ -418,9 +418,10 @@ html, body{
 }
 
 #infoText5{
-    top: 44vh;
+    top: 46vh;
     font-size: 4vw;
     width: 95%;
+    margin: 0;
 }
 
 #finishBtn {
@@ -470,30 +471,43 @@ html, body{
     z-index: 2;
 }
 
+
 /* media queries  */
-@media (min-width: 430px) {
+
+@media only screen and (min-width: 390px) {
+
+    #info3, #info1, #info4{
+        height: 95% !important;
+    }
+    #infoText1 {
+        top: 44vh;
+    }
+
+}
+
+@media   only screen and (min-width: 430px) {
     #alertDiv {
         width: 90%;
     }
-}
-@media (max-width: 425px) {
-    /* .roadLogo {
-        height: 10vh;
-        width: 18vw;
-        top: 9vh;
-        left: 11vw;
-    } */
+
 }
 
-@media (max-width: 375px) {
+
+
+
+@media only screen and (max-width: 375px) {
     .roadLogo {
         height: 8vh;
         width: 17vw;
         left: 2vw;
     }
+    #info3 #info1 #info4{
+        height: 95%;
+    }
+
 }
 
-@media (max-width: 330px) {
+@media only screen and (max-width: 330px) {
     .roadLogo {
         height: 8vh;
         width: 18vw;

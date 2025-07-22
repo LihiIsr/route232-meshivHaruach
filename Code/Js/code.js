@@ -3,7 +3,7 @@ document.onreadystatechange = function()
 {
     if (document.readyState === 'complete')
     {
-        if(screen.width > 500){
+        if(screen.width > 450){
             document.getElementById("unavailable").style.visibility = "visible";
         }
     }
