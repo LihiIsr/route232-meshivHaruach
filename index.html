@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>סיור דיגיטלי בציר 232- משיב הרוח</title>
+  <meta property="og:title" content="סיור דיגיטלי בציר 232- משיב הרוח" />
+  <meta property="og:url" content="https://route232-758ee.web.app" />
+  <meta property="og:description" content=" אוסף קטן של עדויות ממקומות מרכזיים בציר" />
+  <meta property="og:image" content="https://route232-758ee.web.app/Images/mapSigns5.png" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="Libraries/bootstrap.min.css">
+    <link rel="stylesheet" href="Code/Css/styleSheet.css">
+    <script src="Code/Js/code.js"></script>
+    <script src="Libraries/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wdth,wght@72.9,100..900&display=swap" rel="stylesheet">
+  
+    <meta name="google-site-verification" content="U2LMlZ-7Oi2ixS2QO1MC5n0Gh5bVuCbAn-JHilRVPGE" />
+</head>
+<body background="Images/map.png" class="bg" >
+
+    <div  id="shadow" class="shadow"></div>
+     
+    <img id="unavailable"  src="Images/404.png" style="visibility: hidden;">
+
+    <div id="loadScreen">
+
+    <div id="startDiv">
+        <p class="startHeader text">סיור דיגיטלי בציר </p>
+        <img class="roadLogo" src="Images/road232.png">
+        <p class="startText text">סיור דיגיטלי זה פותח על מנת להנציח את אירועי ה7 באוקטובר שהתרחשו על  ציר  232 (ציר הדמים),
+          <br>
+           כיום אין סממנים מובהקים בכביש לזוועות.
+          <br>
+          <br>
+           מוזמנים במהלך הנסיעה על ציר זה ללמוד אודות סיפורו.</p>
+        <button id="startBtn">התחל</button>
+    </div>
+
+    <div id="alertDiv" style="visibility: hidden;">
+        <p class="alertHeader"> לומדה זו מכילה תכנים קשים  </p>
+        <img class="alertLogo" src="Images/alertImg.png">
+        <p class="alertText">  (תמונות ועדויות מהשבעה באוקטובר)</p>
+        <button id="alertBtn">אישור</button>
+    </div>
+
+    <img id="location1" class="location" src="Images/locationIcon.png" style="visibility: hidden;">
+    <img id="location2" class="location" src="Images/locationIcon.png" style="visibility: hidden;">
+    <img id="location3" class="location" src="Images/locationIcon.png" style="visibility: hidden;">
+    <img id="location4" class="location" src="Images/locationIcon.png" style="visibility: hidden;">
+    <img id="location5" class="location" src="Images/locationIcon.png" style="visibility: hidden;">
+
+    <div id="info1" class="info" style="visibility: hidden;">
+        <p id="header1" class="header reimHeader">חניון רעים (פסטיבל הנובה)</p>
+
+        <div id="carouselExample" class="carousel slide carouselSize">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="Images/reimParking4.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="Images/reimParking2.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="Images/reimParking1.png" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <p id="infoText1" class="infoText">הדיווחים הראשונים על ירי באזור החלו להתקבל קצת לפני שבע בבוקר, מהחניון ברעים יש רק כביש אחד שמוביל החוצה, כביש 232.
+          <br>
+          <br>
+          עוד לפני שהמחבלים הגיעו לחניון נוצר פקק ביציאה, ולאנשים שעמדו בו לא היה מושג שהמכוניות הראשונות כבר הספיקו להפגע. המחבלים ירו במכוניות וטבחו בנוסעיהן לאורך כל הכביש ויצרו מחסום שמנע את יציאת המבלים מהאזור.
+          <br>
+          <br>
+          רבים מקורבנות המסיבה סיימו את חייהם בכביש זה, חלק נחטפו משם.</p>
+
+        <img id="closeInfo1" class="closeInfo" src="Images/close.png">
+    </div>  
+    
+    <p id="header2" style="visibility: hidden;">עדות מכביש 232</p>
+    <img id="closeInfo2" class="closeInfo" src="Images/close.png" style="visibility: hidden;">
+
+    <div id="info3" class="info" style="visibility: hidden;">
+        <p id="header3" class="header">עיקול מפלסים </p>
+        <p id="infoText3" class="infoText">בסמוך לגדרות הקיבוץ ליד עיקול הכביש המכונה 'עיקול מפלסים' העמידו המחבלים מארב מתוכנן עם רכבים שחסמו את הציר וירו במקלעים על הרכבים שעברו בכביש שכללו בעיקר מבלים שברחו ממסיבת הנובה.
+          <br>
+          <br>
+          על פי עדויות של ניצולים שהתפרסמו בתחקירים שונים, המחבלים ירו, עשו וידואי הריגה, אנסו ושרפו.
+          <br>
+          <br>
+          בעיקול נרצחו כ-50 אזרחים ישראלים, חלקם נחטפו לרצועת עזה.
+          </p>
+        <img id="closeInfo3" class="closeInfo" src="Images/close.png">
+    </div> 
+
+    <div id="info4" class="info" style="visibility: hidden;">
+        <p id="header4" class="header">מיגוניות</p>
+        <p id="infoText4" class="infoText">"מיגוניות המוות" הוא כינוי למיגוניות בצומת רעים, בצומת עלומים ובצומת בארי, בהן נרצחו ומהן נחטפו עשרות צעירים שברחו מהטבח בפסטיבל הנובה.
+          <br>
+          <br>
+          עם הגעת המחבלים לזירה, כ-30 מהמבלים בפסטיבל ברחו למיגונית בצומת רעים בה מצאו מחסה.
+          <br>
+          <br>
+          מתוך 27 ששהו במיגונית, 16 נרצחו, 4 נחטפו, ורק 7 שרדו בחיים.
+          </p>
+        <img id="closeInfo4" class="closeInfo" src="Images/close.png">
+    </div> 
+
+    <div id="info5" class="info" style="visibility: hidden;">
+      <p id="header5" class="header reimHeader">מגרש הרכבים השרופים</p>
+
+      <div id="carouselExample2" class="carousel slide carouselSize carouselSize2">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Images/tkuma1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Images/tkuma2.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <p id="infoText5" class="infoText">מגרש הרכבים השרופים בתקומה מאחסן בתוכו 1,560 כלי רכב שפונו מכבישי ומיישובי עוטף עזה בשבועות שלאחר השבעה באוקטובר.
+        <br>
+        <br>
+        הרכבים עברו תהליך שכלל סילוק אמצעי חבלה כגון מטענים, רימונים וכלי לחימה נוספים שעלולים לפגוע בכוחות המטפלים ברכבים, איסוף שיירי הנרצחים כדי להביאם לקבורה, איסוף חפצים אישיים ומזהים של יושבי הרכבים, איסוף מצלמות ומידע מודיעיני מהרכבים במטרה להבין מה עלה בגורלם וכו'.
+        <br>
+        <br>
+        מאחורי כל כלי רכב ישנו סיפור על משפחות, ילדים, הורים, מבוגרים וצעירים, שהיו במסיבה או בשטחי העוטף.
+      </p>
+
+      <img id="closeInfo5" class="closeInfo" src="Images/close.png">
+  </div>  
+    
+
+
+    <button id="finishBtn" style="visibility: hidden;">סיום</button>
+
+    <img id="credits" src="Images/creditsUpdated.png"  style="visibility: hidden;">
+
+  </div>
+
+</body>
+</html>

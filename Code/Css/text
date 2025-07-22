@@ -1,0 +1,288 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+  
+.bg {
+    /* The image used */
+    /* background-image: url("//Images/map.jpg"); */
+    /* Full height */
+    height: 100%;
+    /* width: 100%; */
+    margin: 0;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow: scroll
+;}
+
+.shadow {
+    height: 100%;
+    background-color: rgb(227, 230, 231);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* universal classes */
+.text {
+    color: white;
+}
+
+#startDiv {
+    position: absolute;
+    background-color: rgb(131, 206, 240);
+    /* opacity: 0.9; */
+    border-radius: 25px;
+    height: 60%;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.startHeader {
+    position: absolute;
+    right: 20%;
+    top: 20px;
+    font-size: 10vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+.roadLogo {
+    position: absolute;
+    z-index: 1;
+    height: 10vh;
+    width: 18vw;
+    top: 50px;
+    left: 30px;
+}
+
+.startText {
+    position: absolute;
+    direction: rtl;
+    text-align: center;
+    font-size: 6vw;
+    top: 20vh;
+}
+
+#startBtn {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20vw;
+    height: 7vh;
+    font-size: 5vw;
+    color: rgb(131, 206, 240);
+    border-radius: 25px;
+    border-color: transparent;
+
+}
+
+/* alert div  */
+
+#alertDiv {
+    position: absolute;
+    background-color: rgb(233, 48, 11);
+    opacity: 0;
+    border-radius: 25px;
+    height: 40%;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: smoothAppear 3s ease forwards;
+}
+
+.alertHeader {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 20%;
+    width: 80vw;
+    font-size: 7vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 550;
+}
+
+.alertLogo {
+    position: absolute;
+    z-index: 1;
+    height: 15vh;
+    width: 18vw;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.alertText {
+    position: absolute;
+    direction: rtl;
+    font-size: 6vw;
+    top: 15vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#alertBtn {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translate(-50%);
+    width: 20vw;
+    height: 7vh;
+    font-size: 5vw;
+    border-radius: 25px;
+    background-color: rgb(221, 215, 215);
+    border-color: transparent;
+}
+
+/* keyframes  */
+
+
+@keyframes smoothAppear {
+    0%{
+        opacity: 0;
+    }
+    /* 25%{
+        opacity: 0.2;
+    } */
+    50%{
+        opacity: 0.5;
+    }
+    /* 75%{
+        opacity: 0.7;
+    } */
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes flicker {
+    0%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+/* locations  */
+
+.location{
+    position: absolute;
+    width: 13vw;
+    height: 11vh;
+    
+}
+
+#location1{
+    top: 41vh;
+    left: 43vw;
+}
+
+#location2{
+    top: 33vh;
+    left: 59vw;
+}
+
+#location3{
+    top: 18vh;
+    left: 86vw;
+}
+
+.animated{
+    animation: flicker 2s infinite;
+
+}
+
+/* info */
+
+.info{
+    position: absolute;
+    background-color: antiquewhite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 25px;
+
+}
+
+.closeInfo{
+    position: absolute;
+    width: 11%;
+    height: 7%;
+}
+
+#info1{
+    width: 80%;
+    height: 80%;   
+}
+
+#closeInfo1{
+    top: 2vh;
+    left: 2vw;
+}
+#closeInfo2{
+    top: 30vh;
+    left: 2vw;
+}
+
+#info2{
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+  }
+
+#info3{
+    width: 80%;
+    height: 80%;
+}
+
+#closeInfo3{
+    top: 2vh;
+    left: 2vw;
+}
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width: 425px) {
+    /* .roadLogo {
+        height: 10vh;
+        width: 18vw;
+        top: 9vh;
+        left: 11vw;
+    } */
+}
+
+@media (max-width: 375px) {
+    .roadLogo {
+        height: 9vh;
+        width: 18vw;
+    }
+}
+
+@media (max-width: 330px) {
+    .roadLogo {
+        height: 8vh;
+        width: 18vw;
+    }
+
+}
