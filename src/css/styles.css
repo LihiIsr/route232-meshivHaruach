@@ -23,6 +23,14 @@ html, body{
     background-size: 100vw 100vh;
 }
 
+.hidden{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}
+
 .shadow {
     position: absolute;
     height: 100%;
@@ -282,7 +290,7 @@ html, body{
 
 }
 
-.closeInfo{
+.closeBtn{
     position: absolute;
     width: 11%;
     height: 7%;
@@ -293,11 +301,11 @@ html, body{
     height: 82%;   
 }
 
-#closeInfo1{
+#closeBtn1{
     top: 2vh;
     left: 2vw;
 }
-#closeInfo2{
+#closeBtn2{
     top: 22vh;
     left: 2vw;
 }
@@ -334,7 +342,7 @@ html, body{
     height: 85%;
 }
 
-#closeInfo3{
+#closeBtn3{
     top: 2vh;
     left: 2vw;
 }
@@ -344,7 +352,7 @@ html, body{
     height: 85%;
 }
 
-#closeInfo4{
+#closeBtn4{
     top: 2vh;
     left: 2vw;
 }
@@ -354,7 +362,7 @@ html, body{
     height: 95%;   
 }
 
-#closeInfo5{
+#closeBtn5{
     top: 2vh;
     left: 2vw;
 }
@@ -370,7 +378,7 @@ html, body{
     text-align: center;
 }
 
-.reimHeader{
+#header1, #header5{
     width: 87vw;
 }
 
@@ -431,10 +439,10 @@ html, body{
     width: 22vw;
     height: 5vh;
     font-size: 5vw;
-    background-color: rgb(185, 193, 197);
+    background-color: rgb(124, 160, 179);
     color: black;
     border-radius: 25px;
-    border-color: black;
+    border-color: transparent;
 }
 
 .under{
@@ -462,13 +470,6 @@ html, body{
     top: 10%;
     width: 90%;
 
-}
-
-#unavailable{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
 }
 
 
@@ -513,4 +514,21 @@ html, body{
         width: 18vw;
     }
 
+}
+
+#mobileScreen{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    overflow-y: 'scroll';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.5rem;
+    background-color: rgb(255, 255, 255);
+        
 }
