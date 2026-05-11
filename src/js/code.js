@@ -1,6 +1,8 @@
-var finishBtn, alertDiv, shadow, flickeringLocation, videoLocations;
+let finishBtn, alertDiv, shadow, flickeringLocation, videoLocations;
 import { infosData } from "./data.js";
-
+const locationElements = {};
+const TOTAL_LOCATIONS = 5;
+const HAS_SPECIAL_VIDEO = 2;
 
 document.onreadystatechange = function()
 {
@@ -12,18 +14,19 @@ document.onreadystatechange = function()
         videoLocations = [2,3,4];
 
         if(screen.width > 450){
-            document.getElementById("mobileScreen").classList.add("visible");
+            showElement( document.getElementById("mobileScreen"));
         }
         else{
             createInfos();
-            document.getElementById("loadScreen").classList.add("visible");
-
+            showElement(document.getElementById("loadScreen"));
         }
     }
 };
 
 window.addEventListener('load', function() {
-    document.getElementById("startBtn").addEventListener("click", hideStart);
+    document.getElementById("startBtn").addEventListener("click", hideStart);    
+    finishBtn.addEventListener("click", handleFinish);
+
 })
 
 function createInfos() {
@@ -35,7 +38,7 @@ function createInfos() {
 
         infoDiv.id = `info${info.id}`;
         infoDiv.className = "info";
-        infoDiv.style.visibility = "hidden";
+        infoDiv.classList.add('hidden');
 
         let carouselHTML = "";
 
@@ -97,22 +100,29 @@ function createInfos() {
     });
 }
 
+function showElement(element) {
+    element.classList.remove("hidden");
+    element.classList.add("visible");
+}
+
+function hideElement(element) {
+    element.classList.remove("visible");
+    element.classList.add("hidden");
+}
+
 function hideStart(){
-    document.getElementById("startDiv").classList.add("hidden");
-    document.getElementById("startDiv").classList.remove("visible");
+    hideElement(document.getElementById("startDiv"));
 
     setTimeout(() => {
-        alertDiv.classList.add("visible");
+        showElement(alertDiv)
     }, 500);
     document.getElementById("alertBtn").addEventListener("click", hideAlert);
 
 }
 
 function hideAlert(){
-    alertDiv.classList.remove("visible");
-    alertDiv.classList.add("hidden");
-    shadow.classList.remove("visible");
-    shadow.classList.add("hidden");
+    hideElement(alertDiv);
+    hideElement(shadow)
 
     handleAddLocations();
    
@@ -123,94 +133,86 @@ function hideAlert(){
 function handleAddLocations(){
     const locationsContainer = document.getElementById("locationsContainer");
 
-    for (let i = 1; i <= 5; i++) {
+    for (let id = 1; id <= TOTAL_LOCATIONS; id++) {
         const img = document.createElement("img");
 
-        img.id = `location${i}`;
+        img.id = `location${id}`;
         img.classList.add("location");
         img.src = "./src/assets/Images/locationIcon.png";
-        img.style.visibility = "visible";
+        img.classList.add('visible');
 
         locationsContainer.appendChild(img);
-        document.getElementById('location' + i).addEventListener("click", handleOpenInfo);
+    }
+
+     for (let id = 1; id <= TOTAL_LOCATIONS; id++) {
+        locationElements[id] =
+            document.getElementById(`location${id}`);
+       locationElements[id].addEventListener("click", handleOpenInfo);
 
     }
 }
 
 function handleOpenInfo(event){
-    finishBtn.classList.remove("hidden");
-    finishBtn.classList.add("visible");
-    finishBtn.addEventListener("click", handleFinish);
+    showElement(finishBtn);
 
-    var location = String(event.target.id);
-    var locationId = Number(location[location.length-1]);
+    const location = String(event.target.id);
+    const locationId = Number(location.replace("location", ""));
     console.log(locationId);
   
    flickeringLocation.classList.remove("animated");
     
     disableLocation();
 
-    var image = document.getElementById('location' + locationId);
+    let image = locationElements[locationId];
     image.src = './src/assets/Images/locationIcon3Pressed.png';
 
-    shadow.classList.remove("hidden");
-    shadow.classList.add("visible");
+    showElement(shadow)
 
     if(videoLocations.includes(locationId)){
-        if(locationId !== 2){
-            document.getElementById('info' + locationId).style.visibility = "visible";
+        if(locationId !== HAS_SPECIAL_VIDEO){
+            showElement( document.getElementById('info' + locationId))
         }
-        document.getElementById('header' + locationId).style.visibility = "visible";
+        showElement(document.getElementById('header' + locationId));
         createFrame(locationId);
     }
     else{
-    document.getElementById('info' + locationId).style.visibility = "visible";
-
+        showElement(document.getElementById('info' + locationId));
     }
-    document.getElementById('closeBtn' + locationId).style.visibility = "visible";
+    showElement(document.getElementById('closeBtn' + locationId));
     document.getElementById('closeBtn' + locationId).addEventListener("click", handleCloseInfo);
 }
 
 
-function animatedLocation(id){
-    document.getElementById('location' + id).classList.remove("animated");
-}
-
-
 function handleCloseInfo(event){
-    var location = String(event.target.id);
-    var locationId =Number(location[location.length-1]);
+    const location = String(event.target.id);
+    const locationId = Number(location.replace("closeBtn", ""));
+    console.log(locationId)
 
     if(videoLocations.includes(locationId)){
-        if(locationId !== 2){
-            document.getElementById('info' + locationId).style.visibility = "hidden";
+        if(locationId !== HAS_SPECIAL_VIDEO){
+            hideElement(document.getElementById('info' + locationId));
         }
-        document.getElementById('header' + locationId).style.visibility = "hidden";
+        hideElement(document.getElementById('header' + locationId));
         removeFrame(locationId);
     }
     else{
-        document.getElementById('info' + locationId).style.visibility = "hidden";
+        hideElement(document.getElementById('info' + locationId))
     }
-    document.getElementById('closeBtn' + locationId).style.visibility = "hidden";
-
-    shadow.classList.remove("visible");
-    shadow.classList.add("hidden");
-
+    hideElement(document.getElementById('closeBtn' + locationId));
+    hideElement(shadow);
     enableLocation();
-
 }
 
-
 function disableLocation(){
-    for(let id=1; id<6; id++){
-        document.getElementById('location' + id).classList.add("lowLocation"); //opacity
-        document.getElementById('location' + id).removeEventListener("click", handleOpenInfo);
+    for(let id=1; id <= TOTAL_LOCATIONS; id++){
+        locationElements[id].classList.add("lowLocation"); //opacity
+        locationElements[id].removeEventListener("click", handleOpenInfo);
 
-        if( document.getElementById('location' + id).classList.contains("animated")){
-            document.getElementById('location' + id).classList.remove("animated");
-            document.getElementById('location' + id).classList.remove("lowLocation");
+        if( locationElements[id].classList.contains("animated")){
+            locationElements[id].classList.remove("animated");
+            locationElements[id].classList.remove("lowLocation");
 
-            document.getElementById('location' + id).classList.add("lowAnimated");
+           locationElements[id].classList.add("lowAnimated");
         }
     }
     finishBtn.removeEventListener("click", handleFinish);
@@ -219,13 +221,13 @@ function disableLocation(){
 
 
 function enableLocation(){
-    for( let id=1; id<6; id++){
-        document.getElementById('location' + id).classList.remove("lowLocation");
-        document.getElementById('location' + id).addEventListener("click", handleOpenInfo);
+    for( let id=1; id<= TOTAL_LOCATIONS; id++){
+        locationElements[id].classList.remove("lowLocation");
+        locationElements[id].addEventListener("click", handleOpenInfo);
 
-        if( document.getElementById('location' + id).classList.contains("lowAnimated")){
-            document.getElementById('location' + id).classList.add("animated");
-            document.getElementById('location' + id).classList.remove("lowAnimated");
+        if( locationElements[id].classList.contains("lowAnimated")){
+            locationElements[id].classList.add("animated");
+            locationElements[id].classList.remove("lowAnimated");
         }
     }
     finishBtn.addEventListener("click", handleFinish);
@@ -235,28 +237,31 @@ function enableLocation(){
 
 
 function createFrame(id){
-    var ifrm = document.createElement("div");
-    var srcArr = ["https://www.youtube-nocookie.com/embed/RU24Tl5AWsg?si=KtgFFE8yJ_354CWp", "https://www.youtube.com/embed/Cgf1W48siEo?si=a4IZyK4MEe5WUyYv", "https://www.youtube.com/embed/ZRXVP2mZ_V8?si=A6N2bfmN-zprGGrN"];
+    let ifrm = document.createElement("div");
+    let srcArr = ["https://www.youtube-nocookie.com/embed/RU24Tl5AWsg?si=KtgFFE8yJ_354CWp", "https://www.youtube.com/embed/Cgf1W48siEo?si=a4IZyK4MEe5WUyYv", "https://www.youtube.com/embed/ZRXVP2mZ_V8?si=A6N2bfmN-zprGGrN"];
     ifrm.setAttribute("id", 'vidFrame' + id);
-    ifrm.innerHTML = '<iframe id="vid'+ id + '" src=' + srcArr[id -2] + 'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+    ifrm.innerHTML = `
+        <iframe
+            id="vid${id}"
+            src="${srcArr[id - 2]}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        ></iframe>
+        `;
 
     document.body.appendChild(ifrm);
-
 }
 
 function removeFrame(id){ 
     document.getElementById('vidFrame' + id).remove();
 }
 
-
 function handleFinish(){
     for( let locationId=1; locationId<6; locationId++){
-        document.getElementById('location' + locationId).style.visibility  =  "hidden";
+        hideElement(locationElements[locationId])
     }
-
-
-    shadow.classList.add("visible");
-    document.getElementById("credits").classList.add("visible");
-    finishBtn.classList.remove("visible");
-    finishBtn.classList.add("hidden");
+    showElement(shadow);
+    hideElement(finishBtn);
+    showElement(document.getElementById("credits"))
 }
